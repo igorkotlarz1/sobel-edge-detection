@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\SobelPrototyp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|solutionrelative:SobelPrototyp\\SobelPrototyp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Utils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|solutionrelative:SobelPrototyp\\Utils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Sobel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|solutionrelative:SobelPrototyp\\Sobel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Sobel.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|solutionrelative:SobelPrototyp\\Sobel.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Gaussian.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|solutionrelative:SobelPrototyp\\Gaussian.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Grayscale.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|solutionrelative:SobelPrototyp\\Grayscale.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Sobel.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|solutionrelative:SobelPrototyp\\Sobel.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Gaussian.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|solutionrelative:SobelPrototyp\\Gaussian.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Grayscale.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|solutionrelative:SobelPrototyp\\Grayscale.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Grayscale.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|solutionrelative:SobelPrototyp\\Grayscale.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\SobelPrototyp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{94A98331-D8DF-4BD3-9AC3-1897100B45C7}|SobelPrototyp\\SobelPrototyp.vcxproj|solutionrelative:SobelPrototyp\\SobelPrototyp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,32 +38,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "Gaussian.h",
+              "DocumentMoniker": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Gaussian.h",
+              "RelativeDocumentMoniker": "SobelPrototyp\\Gaussian.h",
+              "ToolTip": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Gaussian.h",
+              "RelativeToolTip": "SobelPrototyp\\Gaussian.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-21T21:46:06.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Grayscale.cpp",
+              "DocumentMoniker": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Grayscale.cpp",
+              "RelativeDocumentMoniker": "SobelPrototyp\\Grayscale.cpp",
+              "ToolTip": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Grayscale.cpp",
+              "RelativeToolTip": "SobelPrototyp\\Grayscale.cpp",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAiwGwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-21T20:56:47.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "SobelPrototyp.cpp",
               "DocumentMoniker": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\SobelPrototyp.cpp",
               "RelativeDocumentMoniker": "SobelPrototyp\\SobelPrototyp.cpp",
               "ToolTip": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\SobelPrototyp.cpp",
               "RelativeToolTip": "SobelPrototyp\\SobelPrototyp.cpp",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAACwAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-11-17T20:59:12.006Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Utils.h",
-              "DocumentMoniker": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Utils.h",
-              "RelativeDocumentMoniker": "SobelPrototyp\\Utils.h",
-              "ToolTip": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Utils.h",
-              "RelativeToolTip": "SobelPrototyp\\Utils.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-11-17T20:59:00.466Z",
               "EditorCaption": ""
             },
             {
@@ -74,59 +87,46 @@
               "RelativeDocumentMoniker": "SobelPrototyp\\Grayscale.h",
               "ToolTip": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Grayscale.h",
               "RelativeToolTip": "SobelPrototyp\\Grayscale.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-11-11T13:28:36.496Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Gaussian.h",
-              "DocumentMoniker": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Gaussian.h",
-              "RelativeDocumentMoniker": "SobelPrototyp\\Gaussian.h",
-              "ToolTip": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Gaussian.h",
-              "RelativeToolTip": "SobelPrototyp\\Gaussian.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-11-11T13:39:37.443Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Sobel.h",
               "DocumentMoniker": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Sobel.h",
               "RelativeDocumentMoniker": "SobelPrototyp\\Sobel.h",
               "ToolTip": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Sobel.h",
               "RelativeToolTip": "SobelPrototyp\\Sobel.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-11-01T20:29:36.181Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Sobel.cpp",
               "DocumentMoniker": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Sobel.cpp",
               "RelativeDocumentMoniker": "SobelPrototyp\\Sobel.cpp",
               "ToolTip": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Sobel.cpp",
               "RelativeToolTip": "SobelPrototyp\\Sobel.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOAAAABNAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-11-01T20:13:51.677Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Gaussian.cpp",
               "DocumentMoniker": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Gaussian.cpp",
               "RelativeDocumentMoniker": "SobelPrototyp\\Gaussian.cpp",
               "ToolTip": "C:\\Users\\igor\\Desktop\\Sobel-edge-detection\\SobelPrototyp\\SobelPrototyp\\Gaussian.cpp",
               "RelativeToolTip": "SobelPrototyp\\Gaussian.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAiwHwAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-28T15:23:52.909Z",
               "EditorCaption": ""

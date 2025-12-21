@@ -22,3 +22,5 @@ void calculateMagnitudePart(const std::vector<BYTE>& image, const std::vector<in
 	std::vector<BYTE>& resultImage, int width, int height, int start, int end);
 std::vector<BYTE> calculateMagnitudeParallel(const std::vector<BYTE>& image, int width, int height, int threadCount);
 
+void applySobelPartCS(BYTE* inputImage, BYTE* outputImage, int width, int height, int stride, int start, int end);
+void applySobelParallelCS(BYTE* inputImage, BYTE* outputImage, int width, int height, int stride, int threadCount);
