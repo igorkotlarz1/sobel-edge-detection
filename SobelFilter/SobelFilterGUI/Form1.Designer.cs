@@ -8,9 +8,9 @@
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Wyczyść wszystkie używane zasoby.
+        /// Wyczyśc wszystkie używane zasoby.
         /// </summary>
-        /// <param name="disposing">prawda, jeżeli zarządzane zasoby powinny zostać zlikwidowane; Fałsz w przeciwnym wypadku.</param>
+        /// <param name="disposing">prawda, jeżeli zarzadzane zasoby powinny zostac zlikwidowane; Falsz w przeciwnym wypadku.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -23,7 +23,7 @@
         #region Kod generowany przez Projektanta formularzy systemu Windows
 
         /// <summary>
-        /// Metoda wymagana do obsługi projektanta — nie należy modyfikować
+        /// Metoda wymagana do obslugi projektanta — nie należy modyfikowac
         /// jej zawartości w edytorze kodu.
         /// </summary>
         private void InitializeComponent()
@@ -47,6 +47,8 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonProbe = new System.Windows.Forms.Button();
+            this.testLab = new System.Windows.Forms.Label();
+            this.labelTimeSobel = new System.Windows.Forms.Label();
             this.groupBoxImp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOriginal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProcessed)).BeginInit();
@@ -68,6 +70,7 @@
             // radioButtonCPP
             // 
             this.radioButtonCPP.AutoSize = true;
+            this.radioButtonCPP.Checked = true;
             this.radioButtonCPP.Location = new System.Drawing.Point(20, 19);
             this.radioButtonCPP.Name = "radioButtonCPP";
             this.radioButtonCPP.Size = new System.Drawing.Size(44, 17);
@@ -75,7 +78,7 @@
             this.radioButtonCPP.TabStop = true;
             this.radioButtonCPP.Text = "C++";
             this.radioButtonCPP.UseVisualStyleBackColor = true;
-            this.radioButtonCPP.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioButtonCPP.CheckedChanged += new System.EventHandler(this.radioButtonCPP_CheckedChanged);
             // 
             // radioButtonASM
             // 
@@ -84,10 +87,9 @@
             this.radioButtonASM.Name = "radioButtonASM";
             this.radioButtonASM.Size = new System.Drawing.Size(48, 17);
             this.radioButtonASM.TabIndex = 1;
-            this.radioButtonASM.TabStop = true;
             this.radioButtonASM.Text = "ASM";
             this.radioButtonASM.UseVisualStyleBackColor = true;
-            this.radioButtonASM.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.radioButtonASM.CheckedChanged += new System.EventHandler(this.radioButtonASM_CheckedChanged);
             // 
             // comboBoxThreads
             // 
@@ -171,7 +173,6 @@
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // groupBox1
@@ -200,22 +201,23 @@
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelTime.Location = new System.Drawing.Point(16, 23);
+            this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelTime.Location = new System.Drawing.Point(6, 18);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(106, 20);
+            this.labelTime.Size = new System.Drawing.Size(122, 18);
             this.labelTime.TabIndex = 9;
             this.labelTime.Tag = "lab";
-            this.labelTime.Text = "Run program!";
+            this.labelTime.Text = "Run the program!";
             this.labelTime.Click += new System.EventHandler(this.labelTime_Click);
             // 
             // groupBoxTime
             // 
+            this.groupBoxTime.Controls.Add(this.labelTimeSobel);
             this.groupBoxTime.Controls.Add(this.labelTime);
             this.groupBoxTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBoxTime.Location = new System.Drawing.Point(68, 484);
             this.groupBoxTime.Name = "groupBoxTime";
-            this.groupBoxTime.Size = new System.Drawing.Size(200, 53);
+            this.groupBoxTime.Size = new System.Drawing.Size(200, 66);
             this.groupBoxTime.TabIndex = 10;
             this.groupBoxTime.TabStop = false;
             this.groupBoxTime.Text = "Elapsed time";
@@ -231,21 +233,25 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.FileName = "result_sobel";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(425, 521);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(136, 16);
             this.label1.TabIndex = 12;
-            this.label1.Text = "label1";
+            this.label1.Text = "Logical CPU Threads";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // buttonProbe
             // 
             this.buttonProbe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonProbe.Location = new System.Drawing.Point(144, 556);
+            this.buttonProbe.Location = new System.Drawing.Point(68, 556);
             this.buttonProbe.Name = "buttonProbe";
             this.buttonProbe.Size = new System.Drawing.Size(124, 33);
             this.buttonProbe.TabIndex = 13;
@@ -253,11 +259,33 @@
             this.buttonProbe.UseVisualStyleBackColor = true;
             this.buttonProbe.Click += new System.EventHandler(this.buttonProbe_Click);
             // 
+            // testLab
+            // 
+            this.testLab.AutoSize = true;
+            this.testLab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.testLab.Location = new System.Drawing.Point(790, 521);
+            this.testLab.Name = "testLab";
+            this.testLab.Size = new System.Drawing.Size(126, 20);
+            this.testLab.TabIndex = 14;
+            this.testLab.Text = "implementaniton";
+            this.testLab.Click += new System.EventHandler(this.label2_Click_1);
+            // 
+            // labelTimeSobel
+            // 
+            this.labelTimeSobel.AutoSize = true;
+            this.labelTimeSobel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelTimeSobel.Location = new System.Drawing.Point(6, 39);
+            this.labelTimeSobel.Name = "labelTimeSobel";
+            this.labelTimeSobel.Size = new System.Drawing.Size(0, 18);
+            this.labelTimeSobel.TabIndex = 15;
+            this.labelTimeSobel.Tag = "lab";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 625);
+            this.Controls.Add(this.testLab);
             this.Controls.Add(this.buttonProbe);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonSave);
@@ -307,6 +335,8 @@
         public System.Windows.Forms.PictureBox pictureBoxProcessed;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonProbe;
+        private System.Windows.Forms.Label testLab;
+        private System.Windows.Forms.Label labelTimeSobel;
     }
 }
 

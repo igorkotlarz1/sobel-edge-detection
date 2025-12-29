@@ -9,7 +9,7 @@ namespace SobelFilterGUI
     internal static class Program
     {
         /// <summary>
-        /// Główny punkt wejścia dla aplikacji.
+        /// Glowny punkt wejścia dla aplikacji.
         /// </summary>
         [STAThread]
         static void Main()

@@ -1,13 +1,13 @@
-// pch.h: wstêpnie skompilowany plik nag³ówka.
-// Wymienione poni¿ej pliki s¹ kompilowane tylko raz, co poprawia wydajnoœæ kompilacji dla przysz³ych kompilacji.
-// Ma to tak¿e wp³yw na wydajnoœæ funkcji IntelliSense, w tym uzupe³nianie kodu i wiele funkcji przegl¹dania kodu.
-// Jednak WSZYSTKIE wymienione tutaj pliki bêd¹ ponownie kompilowane, jeœli którykolwiek z nich zostanie zaktualizowany miêdzy kompilacjami.
-// Nie dodawaj tutaj plików, które bêdziesz czêsto aktualizowaæ (obni¿a to korzystny wp³yw na wydajnoœæ).
+// pch.h: wstepnie skompilowany plik naglowka.
+// Wymienione poni¿ej pliki sa kompilowane tylko raz, co poprawia wydajnoœc kompilacji dla przyszlych kompilacji.
+// Ma to tak¿e wplyw na wydajnoœc funkcji IntelliSense, w tym uzupelnianie kodu i wiele funkcji przegladania kodu.
+// Jednak WSZYSTKIE wymienione tutaj pliki beda ponownie kompilowane, jeœli ktorykolwiek z nich zostanie zaktualizowany miedzy kompilacjami.
+// Nie dodawaj tutaj plikow, ktore bedziesz czesto aktualizowac (obni¿a to korzystny wplyw na wydajnoœc).
 
 #ifndef PCH_H
 #define PCH_H
 
-// w tym miejscu dodaj nag³ówki, które maj¹ byæ wstêpnie kompilowane
+// w tym miejscu dodaj naglowki, ktore maja byc wstepnie kompilowane
 #include <vector>
 #include <cmath>
 #include <thread>

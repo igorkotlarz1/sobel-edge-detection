@@ -41,12 +41,13 @@ void applySobelPart(BYTE* inputImage, BYTE* outputImage, int width, int height, 
             gy += prevRow[x] * 2;
             gy += prevRow[x + 1];
 
-            gy += prevRow[x - 1] * (-1);
-            gy += prevRow[x] * (-2);
+            gy += nextRow[x - 1] * (-1);
+            gy += nextRow[x] * (-2);
             gy += prevRow[x + 1] * (-1);
 
-            int magnitude = sqrt(gx * gx + gy * gy);
-            
+            //int magnitude = sqrt(gx * gx + gy * gy);
+            int magnitude = abs(gx) + abs(gy);
+
             if (magnitude > 255) magnitude = 255;
             rowOut[x] = (BYTE)magnitude;
             //magnitude >= 64 ? rowOut[x] = 255 : rowOut[x] = 0;

@@ -1,5 +1,5 @@
-// pch.cpp: plik Ÿród³owy odpowiadaj¹cy wstêpnie skompilowanemu nag³ówkowi
+// pch.cpp: plik zrodlowy odpowiadajacy wstepnie skompilowanemu naglowkowi
 
 #include "pch.h"
 
-// W przypadku korzystania ze wstêpnie skompilowanych nag³ówków ten plik Ÿród³owy jest niezbêdny, aby kompilacja powiod³a siê.
+// W przypadku korzystania ze wstepnie skompilowanych naglowkow ten plik zrodlowy jest niezbedny, aby kompilacja powiodla sie.

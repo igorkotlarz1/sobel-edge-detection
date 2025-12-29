@@ -21,7 +21,6 @@
   <ItemGroup>
     <ClCompile Include="Gaussian.cpp" />
     <ClCompile Include="Grayscale.cpp" />
-    <ClCompile Include="Histogram.cpp" />
     <ClCompile Include="InterfaceDll.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -33,10 +32,12 @@
   <ItemGroup>
     <ClInclude Include="Gaussian.h" />
     <ClInclude Include="Grayscale.h" />
-    <ClInclude Include="Histogram.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Sobel.h" />
     <ClInclude Include="Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="SobelASM.asm" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -74,6 +75,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
@@ -162,5 +164,6 @@
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
   </ImportGroup>
 </Project>

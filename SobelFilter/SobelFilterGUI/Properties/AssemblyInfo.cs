@@ -2,9 +2,9 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// Ogólne informacje o zestawie są kontrolowane poprzez następujący 
-// zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
-// powiązane z zestawem.
+// Ogolne informacje o zestawie sa kontrolowane poprzez nastepujacy 
+// zestaw atrybutow. Zmień wartości tych atrybutow, aby zmodyfikowac informacje
+// powiazane z zestawem.
 [assembly: AssemblyTitle("SobelFilterGUI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
@@ -14,17 +14,17 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Ustawienie elementu ComVisible na wartość false sprawia, że typy w tym zestawie są niewidoczne
-// dla składników COM. Jeśli potrzebny jest dostęp do typu w tym zestawie z
-// COM, ustaw wartość true dla atrybutu ComVisible tego typu.
+// Ustawienie elementu ComVisible na wartośc false sprawia, że typy w tym zestawie sa niewidoczne
+// dla skladnikow COM. Jeśli potrzebny jest dostep do typu w tym zestawie z
+// COM, ustaw wartośc true dla atrybutu ComVisible tego typu.
 [assembly: ComVisible(false)]
 
-// Następujący identyfikator GUID jest identyfikatorem biblioteki typów w przypadku udostępnienia tego projektu w modelu COM
+// Nastepujacy identyfikator GUID jest identyfikatorem biblioteki typow w przypadku udostepnienia tego projektu w modelu COM
 [assembly: Guid("796181f9-aaee-4759-ba05-cdd65a980df8")]
 
-// Informacje o wersji zestawu zawierają następujące cztery wartości:
+// Informacje o wersji zestawu zawieraja nastepujace cztery wartości:
 //
-//      Wersja główna
+//      Wersja glowna
 //      Wersja pomocnicza
 //      Numer kompilacji
 //      Poprawka

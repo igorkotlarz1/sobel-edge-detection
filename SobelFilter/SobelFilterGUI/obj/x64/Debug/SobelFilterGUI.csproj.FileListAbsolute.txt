@@ -8,3 +8,5 @@ C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\De
 C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Debug\SobelFilterGUI.csproj.CoreCompileInputs.cache
 C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Debug\SobelFilterGUI.exe
 C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Debug\SobelFilterGUI.pdb
+C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Debug\SobelFilterGUI.HistogramForm.resources
+C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Debug\SobelFilterGUI.exe.config

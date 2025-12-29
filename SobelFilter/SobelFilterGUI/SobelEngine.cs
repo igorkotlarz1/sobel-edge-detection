@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SobelFilterGUI
 {
@@ -21,7 +22,10 @@ namespace SobelFilterGUI
         private static extern void ProcessGaussian(IntPtr inputImage, IntPtr outputImage, int width, int height, int stride, int threads);
 
         [DllImport(DLLName, CallingConvention = CallingConvention.Cdecl)]
-        private static extern void ProcessSobel(IntPtr inputImage, IntPtr outputImage, int width, int height, int stride, int threads);
+        private static extern void ProcessSobel_CPP(IntPtr inputImage, IntPtr outputImage, int width, int height, int stride, int threads);
+
+        [DllImport(DLLName, CallingConvention = CallingConvention.Cdecl)]
+        private static extern void ProcessSobel_ASM(IntPtr inputImage, IntPtr outputImage, int width, int height, int stride);
 
         private static void adjustPalette(Bitmap bmp)
         {
@@ -74,7 +78,7 @@ namespace SobelFilterGUI
             return resultBmp;
         }
 
-        public static Bitmap applySobel(Bitmap sourceBmp, int threads)
+        public static Bitmap applySobel_CPP(Bitmap sourceBmp, int threads)
         {
             int width = sourceBmp.Width;
             int height = sourceBmp.Height;
@@ -86,13 +90,38 @@ namespace SobelFilterGUI
             BitmapData inputData = sourceBmp.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadOnly, PixelFormat.Format8bppIndexed);
             BitmapData outputData = resultBmp.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly, PixelFormat.Format8bppIndexed);
 
-            ProcessSobel(inputData.Scan0, outputData.Scan0, width, height, inputData.Stride, threads);
+            ProcessSobel_CPP(inputData.Scan0, outputData.Scan0, width, height, inputData.Stride, threads);
 
             sourceBmp.UnlockBits(inputData);
             resultBmp.UnlockBits(outputData);
 
             return resultBmp;
         }
+        public static Bitmap applySobel_ASM(Bitmap sourceBmp)
+        {
+            int width = sourceBmp.Width;
+            int height = sourceBmp.Height;
 
+            Bitmap resultBmp = new Bitmap(width, height, PixelFormat.Format8bppIndexed);
+
+            adjustPalette(resultBmp);
+
+            BitmapData inputData = sourceBmp.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadOnly, PixelFormat.Format8bppIndexed);
+            BitmapData outputData = resultBmp.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly, PixelFormat.Format8bppIndexed);
+
+            try
+            {
+                ProcessSobel_ASM(inputData.Scan0, outputData.Scan0, width, height, inputData.Stride);
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message, "ASM Error",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            sourceBmp.UnlockBits(inputData);
+            resultBmp.UnlockBits(outputData);
+
+            return resultBmp;
+        }
     }
 }
