@@ -6,11 +6,9 @@ void applySobelPart(BYTE* inputImage, BYTE* outputImage, int width, int height, 
     for (int y = start; y < end; y++) {
         BYTE* rowOut = outputImage + (y * stride);
 
-        for (int x = 0; x < width; x++) {
-            if (y == 0 || y == height - 1 || x == 0 || x == width - 1) {
-                rowOut[x] = 0;
-                continue;
-            }
+        if (y == 0 || y == height - 1) 
+            continue;
+        for (int x = 1; x < width-1; x++) { //int x = 0; x < width; x++
             //GX KERNEL 
             //-1 0 1
             //-2 0 2
@@ -43,14 +41,12 @@ void applySobelPart(BYTE* inputImage, BYTE* outputImage, int width, int height, 
 
             gy += nextRow[x - 1] * (-1);
             gy += nextRow[x] * (-2);
-            gy += prevRow[x + 1] * (-1);
+            gy += nextRow[x + 1] * (-1);
 
-            //int magnitude = sqrt(gx * gx + gy * gy);
             int magnitude = abs(gx) + abs(gy);
 
             if (magnitude > 255) magnitude = 255;
             rowOut[x] = (BYTE)magnitude;
-            //magnitude >= 64 ? rowOut[x] = 255 : rowOut[x] = 0;
         }
     }
 }

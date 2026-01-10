@@ -1,0 +1,11 @@
+C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\bin\x64\Release\SobelFilterGUI.exe.config
+C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\bin\x64\Release\SobelFilterGUI.exe
+C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\bin\x64\Release\SobelFilterGUI.pdb
+C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Release\SobelFilterGUI.csproj.AssemblyReference.cache
+C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Release\SobelFilterGUI.Form1.resources
+C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Release\SobelFilterGUI.HistogramForm.resources
+C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Release\SobelFilterGUI.Properties.Resources.resources
+C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Release\SobelFilterGUI.csproj.GenerateResource.cache
+C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Release\SobelFilterGUI.csproj.CoreCompileInputs.cache
+C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Release\SobelFilterGUI.exe
+C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Release\SobelFilterGUI.pdb
