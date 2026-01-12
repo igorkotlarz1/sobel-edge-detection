@@ -43,12 +43,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labelTime = new System.Windows.Forms.Label();
             this.groupBoxTime = new System.Windows.Forms.GroupBox();
+            this.labelTimeSobel = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonProbe = new System.Windows.Forms.Button();
-            this.testLab = new System.Windows.Forms.Label();
-            this.labelTimeSobel = new System.Windows.Forms.Label();
             this.groupBoxImp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOriginal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProcessed)).BeginInit();
@@ -222,6 +221,16 @@
             this.groupBoxTime.TabStop = false;
             this.groupBoxTime.Text = "Elapsed time";
             // 
+            // labelTimeSobel
+            // 
+            this.labelTimeSobel.AutoSize = true;
+            this.labelTimeSobel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelTimeSobel.Location = new System.Drawing.Point(6, 39);
+            this.labelTimeSobel.Name = "labelTimeSobel";
+            this.labelTimeSobel.Size = new System.Drawing.Size(0, 18);
+            this.labelTimeSobel.TabIndex = 15;
+            this.labelTimeSobel.Tag = "lab";
+            // 
             // buttonSave
             // 
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -259,33 +268,11 @@
             this.buttonProbe.UseVisualStyleBackColor = true;
             this.buttonProbe.Click += new System.EventHandler(this.buttonProbe_Click);
             // 
-            // testLab
-            // 
-            this.testLab.AutoSize = true;
-            this.testLab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.testLab.Location = new System.Drawing.Point(790, 521);
-            this.testLab.Name = "testLab";
-            this.testLab.Size = new System.Drawing.Size(126, 20);
-            this.testLab.TabIndex = 14;
-            this.testLab.Text = "implementaniton";
-            this.testLab.Click += new System.EventHandler(this.label2_Click_1);
-            // 
-            // labelTimeSobel
-            // 
-            this.labelTimeSobel.AutoSize = true;
-            this.labelTimeSobel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelTimeSobel.Location = new System.Drawing.Point(6, 39);
-            this.labelTimeSobel.Name = "labelTimeSobel";
-            this.labelTimeSobel.Size = new System.Drawing.Size(0, 18);
-            this.labelTimeSobel.TabIndex = 15;
-            this.labelTimeSobel.Tag = "lab";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 625);
-            this.Controls.Add(this.testLab);
             this.Controls.Add(this.buttonProbe);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonSave);
@@ -335,7 +322,6 @@
         public System.Windows.Forms.PictureBox pictureBoxProcessed;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonProbe;
-        private System.Windows.Forms.Label testLab;
         private System.Windows.Forms.Label labelTimeSobel;
     }
 }

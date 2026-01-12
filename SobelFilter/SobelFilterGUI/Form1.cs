@@ -32,18 +32,18 @@ namespace SobelFilterGUI
         }
 
         private void radioButtonASM_CheckedChanged(object sender, EventArgs e)
-        {
+        {   
             if(radioButtonASM.Checked)
             {
                 prevSelectedIndex = comboBoxThreads.SelectedIndex;
-                comboBoxThreads.SelectedIndex = 0;
-                comboBoxThreads.Enabled = false;
+                //comboBoxThreads.SelectedIndex = 0;
+                //comboBoxThreads.Enabled = false;
                 implementationCPP = false;
             }
             else
             {
-                comboBoxThreads.SelectedIndex = prevSelectedIndex;
-                comboBoxThreads.Enabled = true;
+                //comboBoxThreads.SelectedIndex = prevSelectedIndex;
+                //comboBoxThreads.Enabled = true;
                 implementationCPP= true;
             }
         }
@@ -153,36 +153,36 @@ namespace SobelFilterGUI
             }
 
             int threads = int.Parse(comboBoxThreads.SelectedItem.ToString());
-            //bool impCpp = radioButtonCPP.Checked;
-            //string impStr = impCpp ? "C++" : "ASSEMBLY";
-
-            Bitmap resultBmp;
+            
             Bitmap originalBmp = (Bitmap)pictureBoxOriginal.Image;
+            Bitmap resultBmp;
 
-            Stopwatch swAll = new Stopwatch();
+            Stopwatch swPreproc = new Stopwatch();
             Stopwatch swSobel = new Stopwatch();
 
-            swAll.Start();
+            swPreproc.Start(); 
             Bitmap grayImg = SobelEngine.toGrayscale(originalBmp, threads);
             Bitmap gaussImg = SobelEngine.applyGaussian(grayImg, threads);
-            
-            swSobel.Start();
+            swPreproc.Stop();
+
             if (implementationCPP)
             {
+                swSobel.Start();
                 resultBmp = SobelEngine.applySobel_CPP(gaussImg, threads);
+                swSobel.Stop();
             }
             else
             {
+                swSobel.Start();
                 resultBmp = SobelEngine.applySobel_ASM(gaussImg);
+                swSobel.Stop();
             }
-
-            swSobel.Stop();
-            swAll.Stop();
 
             pictureBoxProcessed.Image = resultBmp;
 
-            double timeAll = (swAll.ElapsedTicks / (double)Stopwatch.Frequency) * 1000;
-            double timeSobel = (swSobel.ElapsedTicks / (double)Stopwatch.Frequency) * 1000; 
+            double timePreproc = (swPreproc.ElapsedTicks / (double)Stopwatch.Frequency) * 1000;
+            double timeSobel = (swSobel.ElapsedTicks / (double)Stopwatch.Frequency) * 1000;
+            double timeAll = timePreproc + timeSobel;
 
             labelTime.Text = $"{timeAll:F2} ms";
             labelTimeSobel.Text = $"{timeSobel:F2} ms (Sobel)";
@@ -198,6 +198,7 @@ namespace SobelFilterGUI
                 currentHistogram.Show();
             }    
         }
+
         private void probe()
         {
             if (!(radioButtonCPP.Checked || radioButtonASM.Checked))
@@ -215,87 +216,65 @@ namespace SobelFilterGUI
 
             int[] threads = { 1, 2, 4, 8, 16, 32, 64 };
 
-            //bool impCpp = radioButtonCPP.Checked;
             string impStr = implementationCPP ? "C++" : "ASM";
             string path = @"C:\Users\igor\Desktop\Sobel-edge-detection\Dokumenty\probing.csv";
 
             Bitmap originalBmp = (Bitmap)pictureBoxOriginal.Image;
 
             const int cycles = 6;
-            double timeAll=0, timeSobel=0, avgTimeALl=0, avgTimeSobel=0;
-            string imgSize = originalBmp.Width * originalBmp.Height > 4e6 ? "large" : "medium";
-
-            if (implementationCPP)
+            double timePreproc=0, timeSobel=0, avgTimePreproc=0, avgTimeSobel=0, avgTimeTotal=0;
+            string imgSize = originalBmp.Width * originalBmp.Height > 4e6 ? "large" : "medium";         
+            
+            foreach (int threadNum in threads)
             {
-                foreach (int threadNum in threads)
-                {
-                    Stopwatch swAll = new Stopwatch();
-                    Stopwatch swSobel = new Stopwatch();
-                    timeAll = 0;
-                    timeSobel = 0;
-
-                    for (int i = 0; i < cycles; i++)
-                    {
-                        swAll.Restart();
-                        Bitmap grayImg = SobelEngine.toGrayscale(originalBmp, threadNum);
-                        Bitmap gaussImg = SobelEngine.applyGaussian(grayImg, threadNum);
-
-                        swSobel.Restart();
-                        Bitmap resultBmp = SobelEngine.applySobel_CPP(gaussImg, threadNum);
-
-                        swSobel.Stop();
-                        swAll.Stop();
-
-                        timeAll += (swAll.ElapsedTicks / (double)Stopwatch.Frequency) * 1000;
-                        timeSobel += (swSobel.ElapsedTicks / (double)Stopwatch.Frequency) * 1000;
-
-                        grayImg.Dispose();
-                        gaussImg.Dispose();
-                        resultBmp.Dispose();
-                    }
-                    avgTimeALl = timeAll / cycles;
-                    avgTimeSobel = timeSobel / cycles;
-
-                    string line = $"{impStr},{threadNum},{avgTimeALl:F2},{avgTimeSobel:F2},{imgSize}";
-                    line += "\n";
-
-                    File.AppendAllText(path, line);
-                }
-            }
-            else
-            {
-                Stopwatch swAll = new Stopwatch();
+                Stopwatch swPreproc = new Stopwatch();
                 Stopwatch swSobel = new Stopwatch();
+                timePreproc = 0;
+                timeSobel = 0;
 
                 for (int i = 0; i < cycles; i++)
                 {
-                    swAll.Restart();
-                    Bitmap grayImg = SobelEngine.toGrayscale(originalBmp, 1);
-                    Bitmap gaussImg = SobelEngine.applyGaussian(grayImg, 1);
+                    swPreproc.Restart();
 
-                    swSobel.Restart();
-                    Bitmap resultBmp = SobelEngine.applySobel_ASM(gaussImg);
+                    Bitmap grayImg = SobelEngine.toGrayscale(originalBmp, threadNum);
+                    Bitmap gaussImg = SobelEngine.applyGaussian(grayImg, threadNum);
 
-                    swSobel.Stop();
-                    swAll.Stop();
+                    swPreproc.Stop();
 
-                    timeAll += (swAll.ElapsedTicks / (double)Stopwatch.Frequency) * 1000;
+                    Bitmap resultBmp;
+
+                    if (implementationCPP)
+                    {
+                        swSobel.Restart();
+                        resultBmp = SobelEngine.applySobel_CPP(gaussImg, threadNum);
+                        swSobel.Stop();
+                    }
+                    else
+                    {
+                        swSobel.Restart();
+                        resultBmp = SobelEngine.applySobel_ASM(gaussImg);
+                        swSobel.Stop();
+                    }
+
+                    timePreproc += (swPreproc.ElapsedTicks / (double)Stopwatch.Frequency) * 1000;
                     timeSobel += (swSobel.ElapsedTicks / (double)Stopwatch.Frequency) * 1000;
 
                     grayImg.Dispose();
                     gaussImg.Dispose();
                     resultBmp.Dispose();
                 }
-                avgTimeALl = timeAll / cycles;
+                avgTimePreproc = timePreproc / cycles;
                 avgTimeSobel = timeSobel / cycles;
 
-                string line = $"{impStr},{1},{avgTimeALl},{avgTimeSobel},{imgSize}";
+                avgTimeTotal = avgTimePreproc + avgTimeSobel;
+
+                string line = $"{impStr};{threadNum};{avgTimeTotal:F2};{avgTimeSobel:F2};{imgSize}";
                 line += "\n";
 
                 File.AppendAllText(path, line);
             }
 
-            labelTime.Text = $"{avgTimeALl:F2} ms";
+            labelTime.Text = $"{avgTimeTotal:F2} ms";
             labelTimeSobel.Text = $"{avgTimeSobel:F2} ms (Sobel)";
 
 
@@ -321,8 +300,7 @@ namespace SobelFilterGUI
 
         private void label2_Click_1(object sender, EventArgs e)
         {
-            if (implementationCPP) testLab.Text = "CPP";
-            else testLab.Text = "ASM";
+
         }
     }
 }

@@ -9,3 +9,4 @@ C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Re
 C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Release\SobelFilterGUI.csproj.CoreCompileInputs.cache
 C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Release\SobelFilterGUI.exe
 C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Release\SobelFilterGUI.pdb
+C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\x64\Release\SobelFilterGUI.exe.config

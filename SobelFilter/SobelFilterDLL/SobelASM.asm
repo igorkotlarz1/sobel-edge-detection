@@ -7,11 +7,11 @@ PUBLIC SobelASM
 ; Argument: RCX = Wskaznik do struktury SobelParams
 ;
 ; Uklad struktury w pamieci:
-; [RCX + 0]  = Input Ptr (8 bajtow)
-; [RCX + 8]  = Output Ptr (8 bajtow)
-; [RCX + 16] = Width (4 bajty)
-; [RCX + 20] = Height (4 bajty)
-; [RCX + 24] = Stride (4 bajty)
+; [RCX + 0]  = Input Ptr (8B)
+; [RCX + 8]  = Output Ptr (8B)
+; [RCX + 16] = Width (4B)
+; [RCX + 20] = Height (4B)
+; [RCX + 24] = Stride (4B)
 ; ==============================================================================
 
 SobelASM PROC
@@ -25,125 +25,164 @@ SobelASM PROC
     push r15
 
     ;U¿ywamy rdx, r8, r9 jako zmiennych lokalnych, bo dane sa w RCX
+    ;Ekstrakcja arguemntow wywolania funkcji ze structa przekazanego w C++
+    mov r12, [rcx]        ; r12 = Input Ptr - adres obrazu wejsciowego
+    mov r13, [rcx + 8]    ; r13 = Output Ptr - adres bufora wyjsciowego
     
-    mov r12, [rcx]        ; r12 = Input Ptr
-    mov r13, [rcx + 8]    ; r13 = Output Ptr
-    
-    xor r8, r8
-    mov r8d, [rcx + 16]   ; r8 = Width
+    xor r8, r8            ; zerowanie R8
+    mov r8d, [rcx + 16]   ; r8 = Width - szerokosc obrazu
     
     xor r9, r9
-    mov r9d, [rcx + 20]   ; r9 = Height
+    mov r9d, [rcx + 20]   ; r9 = Height - wysokosc obrazu
     
     xor r10, r10
-    mov r10d, [rcx + 24]  ; r10 = Stride
+    mov r10d, [rcx + 24]  ; r10 = Stride - szerokosc obrazu uwzgledniajaca padding
 
     pxor xmm15, xmm15     ; Zerowanie XMM15
 
-    ; Zabezpieczenie szerokoœci
-    cmp r8, 9
-    jl EndLoop
+    ;Zabezpieczenie szerokoœci
+    cmp r8, 9 
+    jl EndLoop ; jezeli obraz wezszy niz 9px, pomin obliczenia
 
-    ; Zabezpieczenie petli Y (Height - 1)
-    dec r9
+    ; Zabezpieczenie petli: Height = Height - 1, pomijamy ostatni wiersz
+    dec r9                
 
     mov r11, 1            ; Y = 1
-    sub r8, 8             ; Limit X = Width - 8
+    sub r8, 8             ; Limit X = Width - 8, zostawiamy margines o szerokoœci <= 8px 
 
-    ; Przesuwamy wskazniki na start (Wiersz 1)
+    ; Pomijamy wiersz 0, bo sobel potrzebuje 9 pikseli naraz do przetworzenia 
+    ; Przesuwamy wskazniki na obraz wejsciowy i wyjsciowy na wiersz 1
     add r12, r10          ; Input += Stride
     add r13, r10          ; Output += Stride
 
+; Petla zewnetrzna po wierszach
+; R11 = licznik petli Y
 LoopY:
-    cmp r11, r9           ; if Y >= Height-1
-    jge EndLoop
+    cmp r11, r9           
+    jge EndLoop           ; Jezeli Y >= Height-1, Opuszczamy petle 
 
-    mov rax, 1            ; X = 1
+    mov rax, 1            ; Zawsze zaczynamy od kolumny 1, X = 1
 
 LoopX:
-    cmp rax, r8           ; if X >= Width-8
-    jge NextRow
+    cmp rax, r8           
+    jge NextRow           ; Jezeli offset X >= Width-8, Przejdz do nastepnego wiersza
 
-    ; Wskazniki pomocnicze
+    ; Wskazniki pomocnicze do operatora Sobela 3x3
+    ; RSI - wskaznik na wiersz Górny (Y-1)
+    ; R12 - wskaznik na wiersz Obecny (Y)
+    ; RDI - wskaznik na wiersz Dolny (Y+1)
     mov rsi, r12
-    sub rsi, r10          ; Gora (Y-1)
+    sub rsi, r10          ; Input - Stride == Y-1
     mov rdi, r12
-    add rdi, r10          ; Dol (Y+1)
+    add rdi, r10          ; Output + Stride == Y+1
 
-    ; --- PRAWA STRONA (X+1) ---
-    movq xmm0, qword ptr [rsi + rax + 1] ; Top-Right
-    punpcklbw xmm0, xmm15                
+    ; Obliczanie kernela GX
+    ; -1  0  1
+    ; -2  0  2
+    ; -1  0  1
+
+    ; --- PRAWA KOLUMNA (X+1) ---
+    ; Prawy GORNY pixel
+    movq xmm0, qword ptr [rsi + rax + 1] ; Pobieramy 8 bajtów 
+    punpcklbw xmm0, xmm15                ; Rozpakowujemy bajty do slow 16 bit
     
-    movq xmm1, qword ptr [r12 + rax + 1] ; Mid-Right
-    punpcklbw xmm1, xmm15
-    psllw xmm1, 1                        
+    ; Prawy SRODKOWY pixel
+    movq xmm1, qword ptr [r12 + rax + 1] ; Pobieramy 8 bajtów 
+    punpcklbw xmm1, xmm15                ; Rozpakowujemy bajty do slow 16 bit
+    psllw xmm1, 1                        ; Przesuniecie bitowe w lewo o 1 == Mnozenie przez 2
     
-    movq xmm2, qword ptr [rdi + rax + 1] ; Bot-Right
-    punpcklbw xmm2, xmm15
+    ; Prawy DOLNY pixel
+    movq xmm2, qword ptr [rdi + rax + 1] ; Pobieramy 8 bajtów 
+    punpcklbw xmm2, xmm15                ; Rozpakowujemy bajty do slow 16 bit
 
-    paddw xmm0, xmm1
-    paddw xmm0, xmm2    ; XMM0 = Prawa
+    ; Sumowanie, XMM0 = Suma prawej kolumny kernela 
+    paddw xmm0, xmm1    ; Sumowanie gory i srodka
+    paddw xmm0, xmm2    ; Sumowanie wyniuku z dolem  
 
-    ; --- LEWA STRONA (X-1) ---
-    movq xmm3, qword ptr [rsi + rax - 1] ; Top-Left
+    ; --- LEWA KOLUMNA (X-1) ---
+    ; Lewy GORNY pixel
+    movq xmm3, qword ptr [rsi + rax - 1] 
     punpcklbw xmm3, xmm15
     
-    movq xmm4, qword ptr [r12 + rax - 1] ; Mid-Left
+    ; Lewy SRODKOWY pixel
+    movq xmm4, qword ptr [r12 + rax - 1] 
     punpcklbw xmm4, xmm15
-    psllw xmm4, 1
+    psllw xmm4, 1       ; Przesuniecie bitowe w lewo o 1 == Mnozenie przez 2
     
-    movq xmm5, qword ptr [rdi + rax - 1] ; Bot-Left
+    ; Lewy DOLNY pixel
+    movq xmm5, qword ptr [rdi + rax - 1] 
     punpcklbw xmm5, xmm15
 
-    paddw xmm3, xmm4
-    paddw xmm3, xmm5    ; XMM3 = Lewa
+    ; Sumowanie, XMM3 = Suma lewej kolumny kernela 
+    paddw xmm3, xmm4    ; Sumowanie gory i srodka
+    paddw xmm3, xmm5    ; Sumowanie wyniuku z dolem  
 
+    ; Finalna wartosc splotu GX = PRAWA kolumna - LEWA kolumna Kernela
     psubw xmm0, xmm3    ; XMM0 = GX
 
-    ; --- Dol (GY) ---
-    movdqa xmm1, xmm5   ; Bot-Left
-    
-    movq xmm6, qword ptr [rdi + rax] ; Bot-Mid
-    punpcklbw xmm6, xmm15
-    psllw xmm6, 1
-    
-    paddw xmm1, xmm6
-    paddw xmm1, xmm2    ; + Bot-Right
-    ; XMM1 = Dol
+    ;-------------------------------
+    ; Obliczanie kernela GY
+    ;  1   2   1
+    ;  0   0   0
+    ; -1  -2  -1
 
-    ; --- GoRA (GY) ---
-    movq xmm4, qword ptr [rsi + rax - 1] ; Top-Left
+    ; --- DOLNY WIERSZ (Y+1) ---
+    ; LEWY dolny pixel
+    movdqa xmm1, xmm5   ; Juz mielismy zaladowany w XMM5 wyliczajac GX
+    
+    ; SRODKOWY dolny pixel 
+    movq xmm6, qword ptr [rdi + rax]
+    punpcklbw xmm6, xmm15
+    psllw xmm6, 1       ; Przesuniecie bitowe w lewo o 1 == Mnozenie przez 2
+    
+    ; Sumowanie, XMM1 = Suma DOLNEGO wiersza kernela GY
+    ; Wartosc prawego dolu rowniez byl wczesniej zaladowany do XMM2 wyliczajac GX
+    paddw xmm1, xmm6    ; Sumowanie gory i srodka
+    paddw xmm1, xmm2    ; Symowanie wyniku z PRAWYM dolem
+
+    ; --- GORNY WIERSZ (Y-1) ---
+    ; LEWY gorny pixel
+    movq xmm4, qword ptr [rsi + rax - 1] 
     punpcklbw xmm4, xmm15
 
-    movq xmm7, qword ptr [rsi + rax]     ; Top-Mid
+    ; SRODKOWY gorny pixel
+    movq xmm7, qword ptr [rsi + rax]     
     punpcklbw xmm7, xmm15
-    psllw xmm7, 1
+    psllw xmm7, 1       ; Przesuniecie bitowe w lewo o 1 == Mnozenie przez 2
 
-    movq xmm5, qword ptr [rsi + rax + 1] ; Top-Right
+    ; PRAWY gorny pixel
+    movq xmm5, qword ptr [rsi + rax + 1] 
     punpcklbw xmm5, xmm15
 
-    paddw xmm4, xmm7
-    paddw xmm4, xmm5    ; XMM4 = Gora
+    ; Sumowanie, XMM4 = Suma GORNEGO wiersza kernela GY
+    paddw xmm4, xmm7    ; Sumowanie lewo + srodek
+    paddw xmm4, xmm5    ; Sumowanie wyniku z prawym
 
+    ; Finalna wartosc splotu GY = DOLNY wiersz - GORNY wiersz Kernela 
     psubw xmm1, xmm4    ; XMM1 = GY
 
-    ; --- MAGNITUDA ---
+    ; --- OBLCIZANIE MAGNITUDY ---
+    ; M = |GX| + |GY|
+    ; XMM0 = MAGNITUDA Kernela
     pabsw xmm0, xmm0    ; ABS GX 
     pabsw xmm1, xmm1    ; ABS GY 
-    paddw xmm0, xmm1    ; Suma
+    paddw xmm0, xmm1    ; ABS GX + ABS GY   
 
-    packuswb xmm0, xmm0 ; Pakowanie do bajtow
-    movq qword ptr [r13 + rax], xmm0 ; Zapis wyniku
+    ; -------------------------------
+    ; Pakowanie Unsigned Saturate Word do bajtow
+    packuswb xmm0, xmm0 ; jezeli M > 255 to M = 255
+    movq qword ptr [r13 + rax], xmm0 ; Zapis 8 pixeli do bufora wyjsciowego
 
-    add rax, 8          ; X += 8
-    jmp LoopX
+    add rax, 8          ; Przesuwamy offset petli X += 8
+    jmp LoopX           ; Skok bezwarunkowy do kolejnej iteracji petli wewnetrznej
 
 NextRow:
-    inc r11             ; Y++
-    add r12, r10        ; Przesuniecie o Stride
-    add r13, r10
-    jmp LoopY
+    inc r11             ; Inkrementujemy licznik petli zewnetrznej, Y++
+    add r12, r10        ; Przesuwamy wskaznik Input o Stride (caly wiersz)
+    add r13, r10        ; Przesuwamy wskaznik Output o Stride
+    jmp LoopY           ; Powrot do petli zewnetrznej
 
+; Przywracanie rejestrow po zakonczeniu przetwarzania
 EndLoop:
     pop r15
     pop r14
