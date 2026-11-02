@@ -1,9 +1,0 @@
-﻿  Assembling SobelASM.asm...
-     Trwa tworzenie biblioteki C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\bin\x64\Release\SobelFilterDLL.lib i obiektu C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\bin\x64\Release\SobelFilterDLL.exp
-  Trwa generowanie kodu
-  Previous IPDB and IOBJ mismatch, fall back to full compilation.
-  All 131 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Zakończono generowanie kodu
-  SobelFilterDLL.vcxproj -> C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\bin\x64\Release\SobelFilterDLL.dll
-  C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\bin\x64\Release\SobelFilterDLL.dll
-  1 File(s) copied

@@ -1,0 +1,15 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+x64/
+Debug/
+Release/
+*.user
+*.suo
+*.pdb
+*.ipch
+*.VC.db
+
+# app output
+benchmark.csv
