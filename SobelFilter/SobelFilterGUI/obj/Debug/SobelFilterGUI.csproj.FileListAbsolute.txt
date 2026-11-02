@@ -1,9 +1,0 @@
-C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\bin\Debug\SobelFilterGUI.exe.config
-C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\bin\Debug\SobelFilterGUI.exe
-C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\bin\Debug\SobelFilterGUI.pdb
-C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\Debug\SobelFilterGUI.csproj.AssemblyReference.cache
-C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\Debug\SobelFilterGUI.Properties.Resources.resources
-C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\Debug\SobelFilterGUI.csproj.GenerateResource.cache
-C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\Debug\SobelFilterGUI.csproj.CoreCompileInputs.cache
-C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\Debug\SobelFilterGUI.exe
-C:\Users\igor\Desktop\Sobel-edge-detection\SobelFilter\SobelFilterGUI\obj\Debug\SobelFilterGUI.pdb
